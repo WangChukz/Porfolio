@@ -50,6 +50,7 @@
         },
       };
     </script>
+
     <style type="text/tailwindcss">
       @layer utilities {
         .glass-panel {
@@ -176,6 +177,27 @@
         animation: bounce-slow 2s ease-in-out infinite;
       }
     </style>
+    <style>
+      /* Ẩn con trỏ mặc định trên toàn bộ trang web */
+      html,
+      body {
+        cursor: none;
+      }
+
+      /* Đảm bảo các nút bấm và link vẫn hiện hiệu ứng khi rê chuột vào */
+      a,
+      button,
+      .group {
+        cursor: none;
+      }
+
+      /* Hiệu ứng khi rê vào link: Vòng tròn to ra */
+      .cursor-hover {
+        transform: translate(-50%, -50%) scale(2);
+        background-color: rgba(16, 185, 129, 0.1);
+        border-color: rgba(16, 185, 129, 1);
+      }
+    </style>
   </head>
   <body
     class="bg-zinc-900 text-zinc-100 font-display antialiased overflow-x-hidden selection:bg-emerald-500/30 selection:text-emerald-200"
@@ -190,31 +212,37 @@
           class="absolute bottom-[10%] left-[-5%] w-[500px] h-[500px] bg-emerald-900/10 rounded-full blur-[120px]"
         ></div>
       </div>
+      <!-- Header -->
       <header class="absolute top-0 z-50 w-full px-6 py-6 md:px-12">
         <div class="flex items-center justify-between max-w-[1400px] mx-auto">
           <div
-            class="text-xl md:text-2xl font-bold text-emerald-500 tracking-tight"
+            class="text-2xl md:text-3xl font-black tracking-tighter select-none group"
           >
-            HOANGPHUC.
+            <span
+              class="relative text-transparent bg-clip-text bg-gradient-to-r from-white via-emerald-400 to-emerald-600 drop-shadow-[0_0_15px_rgba(16,185,129,0.4)] transition-all duration-500 group-hover:drop-shadow-[0_0_25px_rgba(16,185,129,0.6)]"
+            >
+              PORFORLIO
+              <span class="text-emerald-500 animate-pulse">.</span>
+            </span>
           </div>
           <div class="hidden md:flex items-center gap-8">
             <nav class="flex items-center gap-6 lg:gap-8">
               <a
                 class="text-sm font-bold text-emerald-400 relative after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-0.5 after:bg-emerald-500 transition-all duration-300"
                 href="#"
-                >Home</a
+                >HOME</a
               >
-              <a class="nav-link" href="#">About</a>
-              <a class="nav-link" href="#">Education</a>
-              <a class="nav-link" href="#">Experience</a>
-              <a class="nav-link" href="#">Skills</a>
-              <a class="nav-link" href="#">Projects</a>
-              <a class="nav-link" href="#">Passions</a>
+              <a class="nav-link" href="#about">ABOUT</a>
+              <a class="nav-link" href="#education">EDUCATION</a>
+              <a class="nav-link" href="#experience">EXPERIENCE</a>
+              <a class="nav-link" href="#skills">SKILLS</a>
+              <a class="nav-link" href="#projects">PROJECTS</a>
+              <a class="nav-link" href="#passions">PASSIONS</a>
             </nav>
             <a
               class="px-6 py-2.5 rounded-full bg-emerald-500 text-zinc-950 text-sm font-bold hover:bg-emerald-400 transition-all duration-300 shadow-glow-green hover:shadow-emerald-500/25 hover:-translate-y-0.5"
               href="#"
-              >Contact</a
+              >CONTACT</a
             >
           </div>
           <button class="md:hidden text-zinc-300">
@@ -279,11 +307,10 @@
 
                 <br class="hidden lg:block" />
 
-                <span
-                  class="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 via-emerald-400 via-cyan-400 to-emerald-600 animate-gradient-x drop-shadow-[0_0_30px_rgba(16,185,129,0.45)]"
-                >
-                  Data Analyst
-                </span>
+                <span 
+  id="typewriter"
+  class="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 via-emerald-400 via-cyan-400 to-emerald-600 animate-gradient-x drop-shadow-[0_0_30px_rgba(16,185,129,0.45)] whitespace-nowrap"
+></span>
               </h1>
             </div>
 
@@ -429,7 +456,7 @@
               ></div>
               <span
                 class="relative text-zinc-950 font-black text-xs uppercase tracking-widest"
-                >Explore My Lab</span
+                >Explore My journey</span
               >
               <span
                 class="material-symbols-outlined relative text-zinc-950 font-bold group-hover:translate-y-1 transition-transform text-sm"
@@ -454,11 +481,11 @@
 
         <div id="stats-section"></div>
 
-        <div id="stats-section"></div>
         <section
           class="w-full px-4 md:px-10 lg:px-40 py-24 flex justify-center bg-zinc-900 relative overflow-hidden"
         >
           <div
+            id="about"
             class="absolute inset-0 opacity-[0.05] pointer-events-none"
             style="
               background-image: radial-gradient(#10b981 1px, transparent 1px);
@@ -734,5 +761,79 @@
         </div>
       </footer>
     </div>
+    <div
+      id="cursor-outline"
+      class="fixed top-0 left-0 w-5 h-5 border-2 border-emerald-500/50 rounded-full pointer-events-none z-[9999] transition-transform duration-100 ease-out -translate-x-1/2 -translate-y-1/2 backdrop-blur-[2px]"
+    ></div>
+    <div
+      id="cursor-dot"
+      class="fixed top-0 left-0 w-1.5 h-1.5 bg-emerald-400 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 shadow-[0_0_10px_#10b981]"
+    ></div>
+    <script>
+  const dot = document.getElementById('cursor-dot');
+  const outline = document.getElementById('cursor-outline');
+
+  window.addEventListener('mousemove', (e) => {
+    const posX = e.clientX;
+    const posY = e.clientY;
+
+    // Chấm nhỏ di chuyển tức thời theo chuột
+    dot.style.left = `${posX}px`;
+    dot.style.top = `${posY}px`;  
+
+    // Vòng tròn lớn di chuyển có độ trễ nhẹ (tạo cảm giác mượt)
+    outline.animate({
+      left: `${posX}px`,
+      top: `${posY}px`
+    }, { duration: 500, fill: "forwards" });
+  });
+
+  // Hiệu ứng phóng to khi rê vào link hoặc nút
+  const interactiveElements = document.querySelectorAll('a, button, .group');
+  interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', () => outline.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => outline.classList.remove('cursor-hover'));
+  });
+</script>
+<script>
+  const textElement = document.getElementById('typewriter');
+  const textToType = "Data Analyst";
+  let charIndex = 0;
+  let isDeleting = false; // Trạng thái: đang gõ hay đang xóa
+
+  function typeWriter() {
+    const currentText = textToType.substring(0, charIndex);
+    textElement.textContent = currentText;
+
+    // Thiết lập tốc độ mặc định
+    let typeSpeed = 150;
+
+    if (isDeleting) {
+      typeSpeed /= 2; // Khi xóa thì xóa nhanh hơn gõ (cho chuyên nghiệp)
+    }
+
+    // Logic xử lý
+    if (!isDeleting && charIndex < textToType.length) {
+      // Đang gõ và chưa hết chữ
+      charIndex++;
+    } else if (isDeleting && charIndex > 0) {
+      // Đang xóa và chưa xóa hết
+      charIndex--;
+    } else {
+      // Đổi trạng thái khi gõ xong hoặc xóa xong
+      isDeleting = !isDeleting;
+      
+      // Khoảng nghỉ: 
+      // Nếu vừa gõ xong chữ 't': Nghỉ 2 giây để người ta đọc
+      // Nếu vừa xóa trắng: Nghỉ 0.5 giây rồi gõ lại
+      typeSpeed = isDeleting ? 2000 : 500; 
+    }
+
+    setTimeout(typeWriter, typeSpeed);
+  }
+
+  // Khởi chạy
+  window.addEventListener('load', typeWriter);
+</script>
   </body>
 </html>
