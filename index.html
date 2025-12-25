@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Analyst Portfolio - Home</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      crossorigin="anonymous"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      referrerpolicy="no-referrer"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "zinc-850": "#1f1f22",
+              "zinc-900": "#18181b",
+              "zinc-950": "#09090b",
+              "emerald-450": "#10b981",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            boxShadow: {
+              soft: "0 10px 40px -10px rgba(0, 0, 0, 0.3)",
+              "glow-green": "0 0 20px rgba(16, 185, 129, 0.15)",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .glass-panel {
+          @apply bg-zinc-800/80 backdrop-blur-xl border border-white/5 shadow-xl;
+        }
+        .nav-link {
+          @apply text-sm font-medium text-zinc-400 hover:text-emerald-400 transition-colors duration-300;
+        }
+        .social-icon-btn {
+          @apply flex items-center justify-center w-10 h-10 rounded-full border border-zinc-700 text-zinc-400 hover:border-emerald-500 hover:bg-emerald-500 hover:text-zinc-900 transition-all duration-300 hover:-translate-y-1;
+        }
+      }
+
+      @layer utilities {
+        /* 1. Hiệu ứng viền xoay */
+        @keyframes border-spin {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        /* 2. Hiệu ứng nổi lên xuống (float) nhẹ nhàng */
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-20px);
+          } /* Nổi lên 20px */
+        }
+
+        .animate-border-spin {
+          animation: border-spin 4s linear infinite;
+        }
+
+        .animate-float-gentle {
+          animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes ripple {
+          0% {
+            transform: scale(1);
+            opacity: 0.6;
+          }
+          100% {
+            transform: scale(3);
+            opacity: 0;
+          }
+        }
+        .animate-ripple {
+          animation: ripple 3s linear infinite;
+        }
+
+        .bg-noise {
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+
+        /* MỚI: Lưới mờ tạo cấu trúc không gian */
+        .bg-grid-slate-900\/\[0\.04\] {
+          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(15 23 42 / 0.04)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+        }
+      }
+
+      /* 1. Tùy chỉnh cho các trình duyệt Webkit (Chrome, Safari, Edge, Brave...) */
+
+      /* Chiều rộng của thanh cuộn */
+      ::-webkit-scrollbar {
+        width: 8px; /* Bạn có thể chỉnh 6px nếu muốn thanh mảnh hơn */
+      }
+
+      /* Phần nền của thanh cuộn (Track) */
+      ::-webkit-scrollbar-track {
+        background: #121212; /* Màu tối tiệp với nền website của bạn */
+      }
+
+      /* Phần tay cầm (Thumb) */
+      ::-webkit-scrollbar-thumb {
+        background: #20c997; /* Màu xanh Mint giống màu nhấn trong thiết kế */
+        border-radius: 10px; /* Bo góc tròn cho hiện đại */
+        border: 2px solid #121212; /* Tạo khoảng trống giữa tay cầm và viền */
+      }
+
+      /* Hiệu ứng khi di chuột vào thanh cuộn */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #18a07a; /* Màu xanh đậm hơn một chút khi hover */
+      }
+
+      /* 2. Tùy chỉnh cho Firefox */
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: #20c997 #121212;
+      }
+
+      /* stactic section */
+      @keyframes bounce-slow {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(10px);
+        }
+      }
+      .animate-bounce-slow {
+        animation: bounce-slow 2s ease-in-out infinite;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-zinc-900 text-zinc-100 font-display antialiased overflow-x-hidden selection:bg-emerald-500/30 selection:text-emerald-200"
+  >
+    <div class="relative flex min-h-screen w-full flex-col group/design-root">
+      <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div class="absolute inset-0 bg-zinc-900"></div>
+        <div
+          class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-emerald-500/5 rounded-full blur-[120px]"
+        ></div>
+        <div
+          class="absolute bottom-[10%] left-[-5%] w-[500px] h-[500px] bg-emerald-900/10 rounded-full blur-[120px]"
+        ></div>
+      </div>
+      <header class="absolute top-0 z-50 w-full px-6 py-6 md:px-12">
+        <div class="flex items-center justify-between max-w-[1400px] mx-auto">
+          <div
+            class="text-xl md:text-2xl font-bold text-emerald-500 tracking-tight"
+          >
+            PORFOLIO.
+          </div>
+          <div class="hidden md:flex items-center gap-8">
+            <nav class="flex items-center gap-6 lg:gap-8">
+              <a
+                class="text-sm font-bold text-emerald-400 relative after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-0.5 after:bg-emerald-500 transition-all duration-300"
+                href="#"
+                >Home</a
+              >
+              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="#">Education</a>
+              <a class="nav-link" href="#">Experience</a>
+              <a class="nav-link" href="#">Skills</a>
+              <a class="nav-link" href="#">Projects</a>
+              <a class="nav-link" href="#">Passions</a>
+            </nav>
+            <a
+              class="px-6 py-2.5 rounded-full bg-emerald-500 text-zinc-950 text-sm font-bold hover:bg-emerald-400 transition-all duration-300 shadow-glow-green hover:shadow-emerald-500/25 hover:-translate-y-0.5"
+              href="#"
+              >Contact</a
+            >
+          </div>
+          <button class="md:hidden text-zinc-300">
+            <span class="material-symbols-outlined text-3xl">menu</span>
+          </button>
+        </div>
+      </header>
+
+      <main
+        class="flex-1 flex flex-col items-center w-full relative z-10 pt-5 md:pt-5 bg-zinc-900"
+      >
+        <section class="relative w-full h-screen max-h-screen flex flex-col justify-center items-center overflow-hidden bg-zinc-900 px-4 md:px-12 lg:px-24">
+  
+  <div class="absolute inset-0 pointer-events-none select-none">
+    <div class="absolute inset-0 bg-noise opacity-[0.08] mix-blend-overlay"></div>
+    <div class="absolute inset-0 bg-grid-slate-900/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.03]"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 lg:left-1/4 w-[300px] h-[300px] lg:w-[500px] lg:h-[500px] bg-emerald-500/10 rounded-full blur-[100px] lg:-translate-y-1/2 animate-pulse-slow"></div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-[auto_auto] items-center gap-6 md:gap-8 lg:gap-x-16 lg:gap-y-2 relative z-10 max-w-6xl w-full -mt-12 lg:-mt-20">
+    
+    <div class="flex flex-col items-center lg:items-start text-center lg:text-left gap-4 order-1">
+      <div class="group flex items-center gap-2 bg-zinc-900/60 backdrop-blur-3xl px-4 py-1.5 rounded-full border border-emerald-500/20 shadow-lg scale-90 lg:scale-100">
+        <div class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 shadow-[0_0_8px_#10b981]"></span>
+        </div>
+        <span class="material-symbols-outlined text-emerald-500 text-base">location_on</span>
+        <span class="text-[10px] font-bold text-zinc-300 tracking-[0.2em] uppercase">Hanoi, Vietnam</span>
+      </div>
+
+      <h1 class="text-4xl md:text-6xl lg:text-[4.5rem] xl:text-[5.5rem] font-black tracking-tighter text-white leading-[1.1] lg:leading-[0.95] drop-shadow-2xl">
+        Hi, I'm <br class="hidden lg:block" />
+        <span class="text-transparent bg-clip-text bg-gradient-to-br from-emerald-300 via-emerald-500 to-teal-600">
+          Hoang Phuc
+        </span>
+      </h1>
+    </div>
+
+    <div class="order-2 lg:order-none lg:row-span-2 flex justify-center items-center relative animate-float-gentle group select-none">
+      
+      <div class="absolute -top-[5%] -left-[5%] md:-top-4 md:-left-6 z-30 scale-75 md:scale-100">
+        <div class="relative flex h-4 w-4">
+          <div class="animate-ripple absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60"></div>
+          <div class="relative inline-flex rounded-full h-4 w-4 bg-emerald-500 shadow-[0_0_10px_#10b981]"></div>
+        </div>
+      </div>
+
+      <div class="absolute top-1/2 -right-[8%] md:-right-8 -translate-y-1/2 z-30 scale-75 md:scale-100">
+        <div class="relative flex h-3 w-3">
+          <div class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-40"></div>
+          <div class="relative inline-flex rounded-full h-3 w-3 bg-emerald-400 shadow-[0_0_8px_#10b981]"></div>
+        </div>
+      </div>
+
+      <div class="absolute -bottom-[2%] -left-[2%] md:-bottom-2 md:left-4 z-30 scale-75 md:scale-100">
+        <div class="relative flex h-5 w-5">
+          <div class="animate-ripple absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-30" style="animation-delay: 1.5s;"></div>
+          <div class="relative inline-flex rounded-full h-5 w-5 bg-emerald-600 shadow-[0_0_15px_rgba(16,185,129,0.3)]"></div>
+        </div>
+      </div>
+
+      <div class="relative w-[200px] h-[200px] sm:w-[260px] sm:h-[260px] md:w-[320px] md:h-[320px] lg:w-[380px] lg:h-[380px] rounded-full p-[4px] overflow-hidden flex items-center justify-center bg-zinc-800 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] border border-white/5">
+        <div class="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent,transparent,#10b981,transparent)] animate-border-spin opacity-100"></div>
+        <div class="absolute inset-[3px] bg-zinc-950 rounded-full z-10 shadow-[inset_0_0_30px_rgba(16,185,129,0.1)]"></div>
+        <div class="w-full h-full rounded-full overflow-hidden relative z-20 border-4 border-zinc-800/80 group-hover:border-emerald-500/20 transition-all duration-700">
+          <img alt="Hoang Phuc Profile" class="w-full h-full object-cover object-top scale-105 group-hover:scale-110 transition-transform duration-1000 opacity-95 group-hover:opacity-100" src="images/HoangPhuc1.jpg" />
+        </div>
+      </div>
+
+      <div class="absolute top-6 right-6 z-40 bg-zinc-900/90 backdrop-blur-2xl border border-emerald-500/30 p-2.5 rounded-full shadow-2xl scale-75 md:scale-90">
+        <span class="material-symbols-outlined text-2xl text-emerald-400 animate-pulse">auto_awesome</span>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-center lg:items-start text-center lg:text-left gap-6 order-3 lg:self-start">
+      <p class="text-sm md:text-lg text-zinc-400 max-w-sm md:max-w-md leading-relaxed font-light">
+        <span class="text-emerald-400/80 font-medium italic underline decoration-emerald-500/20 underline-offset-4">Data Analyst</span> 
+        transforming raw numbers into cinematic business stories for the digital age.
+      </p>
+
+      <div class="flex gap-4">
+        <a class="social-icon-btn group bg-zinc-900/40 border-zinc-700/50 hover:scale-110 !w-9 !h-9 flex items-center justify-center rounded-full" href="#"><i class="fab fa-linkedin-in text-sm group-hover:text-emerald-400"></i></a>
+        <a class="social-icon-btn group bg-zinc-900/40 border-zinc-700/50 hover:scale-110 !w-9 !h-9 flex items-center justify-center rounded-full" href="#"><i class="fab fa-github text-sm group-hover:text-emerald-400"></i></a>
+        <a class="social-icon-btn group bg-zinc-900/40 border-zinc-700/50 hover:scale-110 !w-9 !h-9 flex items-center justify-center rounded-full" href="#"><i class="fas fa-envelope text-sm group-hover:text-emerald-400"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="absolute bottom-8 lg:bottom-10 left-1/2 -translate-x-1/2 z-50 flex flex-col md:flex-row items-center gap-4 w-full px-4 justify-center scale-90 md:scale-95">
+    <a href="#stats-section" class="group relative flex items-center gap-3 px-8 py-3.5 bg-emerald-500 rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_20px_40px_-10px_rgba(16,185,129,0.4)] whitespace-nowrap">
+      <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+      <span class="relative text-zinc-950 font-black text-xs uppercase tracking-widest">Explore My Lab</span>
+      <span class="material-symbols-outlined relative text-zinc-950 font-bold group-hover:translate-y-1 transition-transform text-sm">south</span>
+    </a>
+
+    <a href="#" class="group flex items-center gap-3 px-8 py-3.5 bg-zinc-900/40 backdrop-blur-2xl border border-emerald-500/30 rounded-xl text-emerald-400 font-bold text-xs transition-all duration-300 hover:bg-emerald-500/10 hover:border-emerald-500 shadow-lg whitespace-nowrap">
+      <span class="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform">cloud_download</span>
+      <span class="tracking-widest uppercase text-[11px]">Download Resume</span>
+    </a>
+  </div>
+
+</section>
+
+<div id="stats-section"></div>
+
+        <div id="stats-section"></div>
+        <section
+          class="w-full px-4 md:px-10 lg:px-40 py-24 flex justify-center bg-zinc-900 relative overflow-hidden"
+        >
+          <div
+            class="absolute inset-0 opacity-[0.05] pointer-events-none"
+            style="
+              background-image: radial-gradient(#10b981 1px, transparent 1px);
+              background-size: 32px 32px;
+            "
+          ></div>
+          <div class="w-full max-w-[1200px] relative z-10">
+            <div class="grid md:grid-cols-12 gap-12 items-start">
+              <div class="md:col-span-4 flex flex-col gap-4 sticky top-32">
+                <h2
+                  class="text-3xl font-bold leading-tight tracking-tight text-white"
+                >
+                  About Me
+                </h2>
+                <div class="h-1.5 w-20 bg-emerald-500 rounded-full"></div>
+              </div>
+              <div
+                class="md:col-span-8 flex flex-col gap-8 text-zinc-300 leading-relaxed text-lg"
+              >
+                <div
+                  class="p-8 rounded-2xl bg-zinc-800/50 border border-zinc-700/50 backdrop-blur-sm"
+                >
+                  <p class="mb-6">
+                    I am a passionate
+                    <strong class="text-emerald-400 font-bold"
+                      >Data Analyst</strong
+                    >
+                    with a background in Business Intelligence and a knack for
+                    finding the "why" behind the numbers. My journey began in
+                    finance, where I realized that spreadsheets could only tell
+                    half the story. I pivoted to data analytics to master the
+                    tools that allow for deeper exploration and predictive
+                    modeling.
+                  </p>
+                  <p>
+                    My approach combines rigorous statistical analysis with
+                    creative visualization. I believe that data is useless if it
+                    cannot be communicated effectively to stakeholders. Whether
+                    it's optimizing supply chains or predicting customer churn,
+                    my goal is always to provide actionable insights that drive
+                    growth.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          class="w-full px-4 md:px-10 lg:px-40 py-20 flex justify-center relative bg-zinc-850"
+        >
+          <div class="w-full max-w-[1200px] flex flex-col gap-12 relative z-10">
+            <div class="flex flex-col gap-3 text-center md:text-left">
+              <h2 class="text-3xl font-bold text-white">Technical Skills</h2>
+              <p class="text-zinc-400 text-lg">
+                My toolbox for data extraction, processing, and visualization.
+              </p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+              <div
+                class="relative flex flex-col items-center justify-center gap-4 p-6 rounded-2xl bg-zinc-800 border border-zinc-700 shadow-sm hover:shadow-lg hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group cursor-default"
+              >
+                <div
+                  class="size-14 rounded-xl bg-emerald-900/20 flex items-center justify-center text-emerald-500 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300"
+                >
+                  <span class="material-symbols-outlined text-[28px]"
+                    >database</span
+                  >
+                </div>
+                <span
+                  class="font-bold text-zinc-300 group-hover:text-emerald-400 transition-colors"
+                  >SQL</span
+                >
+              </div>
+              <div
+                class="relative flex flex-col items-center justify-center gap-4 p-6 rounded-2xl bg-zinc-800 border border-zinc-700 shadow-sm hover:shadow-lg hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group cursor-default"
+              >
+                <div
+                  class="size-14 rounded-xl bg-emerald-900/20 flex items-center justify-center text-emerald-500 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300"
+                >
+                  <span class="material-symbols-outlined text-[28px]"
+                    >code</span
+                  >
+                </div>
+                <span
+                  class="font-bold text-zinc-300 group-hover:text-emerald-400 transition-colors"
+                  >Python</span
+                >
+              </div>
+              <div
+                class="relative flex flex-col items-center justify-center gap-4 p-6 rounded-2xl bg-zinc-800 border border-zinc-700 shadow-sm hover:shadow-lg hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group cursor-default"
+              >
+                <div
+                  class="size-14 rounded-xl bg-emerald-900/20 flex items-center justify-center text-emerald-500 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300"
+                >
+                  <span class="material-symbols-outlined text-[28px]"
+                    >monitoring</span
+                  >
+                </div>
+                <span
+                  class="font-bold text-zinc-300 group-hover:text-emerald-400 transition-colors"
+                  >Tableau</span
+                >
+              </div>
+              <div
+                class="relative flex flex-col items-center justify-center gap-4 p-6 rounded-2xl bg-zinc-800 border border-zinc-700 shadow-sm hover:shadow-lg hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group cursor-default"
+              >
+                <div
+                  class="size-14 rounded-xl bg-emerald-900/20 flex items-center justify-center text-emerald-500 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300"
+                >
+                  <span class="material-symbols-outlined text-[28px]"
+                    >table_view</span
+                  >
+                </div>
+                <span
+                  class="font-bold text-zinc-300 group-hover:text-emerald-400 transition-colors"
+                  >Excel</span
+                >
+              </div>
+              <div
+                class="relative flex flex-col items-center justify-center gap-4 p-6 rounded-2xl bg-zinc-800 border border-zinc-700 shadow-sm hover:shadow-lg hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group cursor-default"
+              >
+                <div
+                  class="size-14 rounded-xl bg-emerald-900/20 flex items-center justify-center text-emerald-500 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300"
+                >
+                  <span class="material-symbols-outlined text-[28px]"
+                    >bar_chart</span
+                  >
+                </div>
+                <span
+                  class="font-bold text-zinc-300 group-hover:text-emerald-400 transition-colors"
+                  >Power BI</span
+                >
+              </div>
+              <div
+                class="relative flex flex-col items-center justify-center gap-4 p-6 rounded-2xl bg-zinc-800 border border-zinc-700 shadow-sm hover:shadow-lg hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group cursor-default"
+              >
+                <div
+                  class="size-14 rounded-xl bg-emerald-900/20 flex items-center justify-center text-emerald-500 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300"
+                >
+                  <span class="material-symbols-outlined text-[28px]"
+                    >functions</span
+                  >
+                </div>
+                <span
+                  class="font-bold text-zinc-300 group-hover:text-emerald-400 transition-colors"
+                  >R</span
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          class="w-full px-4 md:px-10 lg:px-40 py-24 flex justify-center relative bg-zinc-900"
+        >
+          <div class="w-full max-w-[1200px] flex flex-col gap-10">
+            <div class="flex items-end justify-between">
+              <div>
+                <h2 class="text-3xl font-bold text-white mb-2">
+                  Featured Project
+                </h2>
+                <p class="text-zinc-400">
+                  A glimpse into my recent analytical work.
+                </p>
+              </div>
+              <a
+                class="hidden md:flex items-center gap-1 text-emerald-500 font-bold text-sm hover:underline hover:text-emerald-400 hover:translate-x-1 transition-all"
+                href="#"
+              >
+                View All Projects
+                <span class="material-symbols-outlined text-sm"
+                  >arrow_forward</span
+                >
+              </a>
+            </div>
+            <div
+              class="group relative bg-zinc-800 rounded-3xl overflow-hidden shadow-lg border border-zinc-700 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-emerald-900/20"
+            >
+              <div class="flex flex-col md:flex-row">
+                <div
+                  class="md:w-1/2 h-72 md:h-auto bg-zinc-900 relative overflow-hidden"
+                >
+                  <div
+                    class="w-full h-full bg-cover bg-center transform transition-transform duration-700 group-hover:scale-105 opacity-80"
+                    data-alt="Data visualization dashboard showing sales trends and pie charts"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCUdzPEXfyWvDO16BB0MCWaP2PKU37Zyr0fml8UhOd2oTz49AjuQntqO42l3zn3gTsIddIyy8cMr7gxqs20BVtd1xV91Tc567tDIGmi9YguaMppTo-yzpVp5m7DM8l_kH4mRuSZLtLpZ2rj4gVt3_MgYxXLKlCVCLqJuEaHgVes9Lhthfsekr94XyhIVQbR4orOj7Pqc6oWJSDSkKjtYWQ51AVhTCteO13kCaWuGi-jb-6BdoJ6n6sWEt8SB2FPQ6VYya8ft731mxQa');
+                    "
+                  >
+                    <div
+                      class="absolute inset-0 bg-gradient-to-r from-zinc-900 to-transparent"
+                    ></div>
+                  </div>
+                  <div
+                    class="absolute top-6 left-6 bg-zinc-900/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-bold text-emerald-400 border border-emerald-900/50 shadow-sm"
+                  >
+                    Case Study
+                  </div>
+                </div>
+                <div
+                  class="md:w-1/2 p-8 md:p-14 flex flex-col justify-center items-start gap-5 relative bg-zinc-800"
+                >
+                  <div
+                    class="absolute right-0 top-0 w-32 h-32 bg-emerald-500/5 rounded-bl-full opacity-60"
+                  ></div>
+                  <div class="flex gap-2">
+                    <span
+                      class="px-3 py-1.5 rounded-lg bg-zinc-700 text-zinc-300 text-xs font-bold border border-zinc-600"
+                      >Python</span
+                    >
+                    <span
+                      class="px-3 py-1.5 rounded-lg bg-zinc-700 text-zinc-300 text-xs font-bold border border-zinc-600"
+                      >Pandas</span
+                    >
+                  </div>
+                  <h3
+                    class="text-2xl md:text-3xl font-bold text-white group-hover:text-emerald-400 transition-colors"
+                  >
+                    E-commerce Sales Analysis
+                  </h3>
+                  <p class="text-zinc-400 leading-relaxed text-lg">
+                    Analyzed over 1 million transactions to identify purchasing
+                    trends, resulting in a recommended inventory strategy that
+                    reduced stockouts by 15%.
+                  </p>
+                  <a
+                    class="mt-4 text-emerald-500 font-bold hover:text-emerald-400 inline-flex items-center gap-1 group/link transition-colors"
+                    href="#"
+                  >
+                    Read Case Study
+                    <span
+                      class="material-symbols-outlined text-[18px] transform transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1"
+                      >arrow_outward</span
+                    >
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer
+        class="w-full border-t border-zinc-800 bg-zinc-900 py-12 px-4 md:px-10 lg:px-40 flex justify-center relative"
+      >
+        <div
+          class="w-full max-w-[1200px] flex flex-col md:flex-row justify-between items-center gap-6"
+        >
+          <p class="text-sm text-zinc-500 font-medium">
+            © 2023 Balashanmugam S. All rights reserved.
+          </p>
+          <div class="flex items-center gap-6">
+            <a
+              class="size-10 flex items-center justify-center rounded-full text-zinc-500 hover:text-emerald-400 hover:bg-zinc-800 transition-all hover:-translate-y-1"
+              href="#"
+            >
+              <span class="sr-only">LinkedIn</span>
+              <span class="material-symbols-outlined">work</span>
+            </a>
+            <a
+              class="size-10 flex items-center justify-center rounded-full text-zinc-500 hover:text-emerald-400 hover:bg-zinc-800 transition-all hover:-translate-y-1"
+              href="#"
+            >
+              <span class="sr-only">GitHub</span>
+              <span class="material-symbols-outlined">code</span>
+            </a>
+            <a
+              class="size-10 flex items-center justify-center rounded-full text-zinc-500 hover:text-emerald-400 hover:bg-zinc-800 transition-all hover:-translate-y-1"
+              href="#"
+            >
+              <span class="sr-only">Email</span>
+              <span class="material-symbols-outlined">mail</span>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
