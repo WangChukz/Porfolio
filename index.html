@@ -213,8 +213,8 @@
         ></div>
       </div>
       <!-- Header -->
-      <header class="absolute top-0 z-50 w-full px-6 py-6 md:px-12">
-        <div class="flex items-center justify-between max-w-[1400px] mx-auto">
+      <header class="fixed top-0 left-0 z-[60] w-full px-6 py-4 md:px-12 bg-zinc-900">
+    <div class="flex items-center justify-between max-w-[1400px] mx-auto">
           <div
             class="text-2xl md:text-3xl font-black tracking-tighter select-none group"
           >
@@ -395,10 +395,9 @@
               >
                 <span
                   class="text-emerald-400/80 font-medium italic underline decoration-emerald-500/20 underline-offset-4"
-                  >Data Analyst</span
+                  ></span
                 >
-                transforming raw numbers into cinematic business stories for the
-                digital age.
+                Passionate about transforming raw data into actionable insights. Experienced in Python, Power BI, SQL, and Excel to drive data-driven decisions that create real-world impact.
               </p>
 
               <div class="flex gap-4">
@@ -440,6 +439,19 @@
                     class="fas fa-envelope relative z-10 text-zinc-400 text-base group-hover:text-white group-hover:rotate-[360deg] transition-all duration-500 ease-out"
                   ></i>
                 </a>
+
+                <a
+                  class="social-icon-btn group relative bg-zinc-800/40 border border-zinc-700/50 hover:border-emerald-500/50 hover:bg-emerald-500/10 !w-10 !h-10 flex items-center justify-center rounded-full transition-all duration-300 shadow-lg"
+                  href="#"
+                >
+                  <div
+                    class="absolute inset-0 rounded-full bg-emerald-500/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  ></div>
+
+                  <i
+                    class="fa-brands fa-facebook relative z-10 text-zinc-400 text-base group-hover:text-white group-hover:rotate-[360deg] transition-all duration-500 ease-out"
+                  ></i>
+                </a>
               </div>
             </div>
           </div>
@@ -478,165 +490,251 @@
             </a>
           </div>
         </section>
-
         <div id="stats-section"></div>
 
-        <section
-          class="w-full px-4 md:px-10 lg:px-40 py-24 flex justify-center bg-zinc-900 relative overflow-hidden"
-        >
-          <div
-            id="about"
-            class="absolute inset-0 opacity-[0.05] pointer-events-none"
-            style="
-              background-image: radial-gradient(#10b981 1px, transparent 1px);
-              background-size: 32px 32px;
-            "
-          ></div>
-          <div class="w-full max-w-[1200px] relative z-10">
-            <div class="grid md:grid-cols-12 gap-12 items-start">
-              <div class="md:col-span-4 flex flex-col gap-4 sticky top-32">
-                <h2
-                  class="text-3xl font-bold leading-tight tracking-tight text-white"
-                >
-                  About Me
-                </h2>
-                <div class="h-1.5 w-20 bg-emerald-500 rounded-full"></div>
-              </div>
-              <div
-                class="md:col-span-8 flex flex-col gap-8 text-zinc-300 leading-relaxed text-lg"
-              >
-                <div
-                  class="p-8 rounded-2xl bg-zinc-800/50 border border-zinc-700/50 backdrop-blur-sm"
-                >
-                  <p class="mb-6">
-                    I am a passionate
-                    <strong class="text-emerald-400 font-bold"
-                      >Data Analyst</strong
-                    >
-                    with a background in Business Intelligence and a knack for
-                    finding the "why" behind the numbers. My journey began in
-                    finance, where I realized that spreadsheets could only tell
-                    half the story. I pivoted to data analytics to master the
-                    tools that allow for deeper exploration and predictive
-                    modeling.
-                  </p>
-                  <p>
-                    My approach combines rigorous statistical analysis with
-                    creative visualization. I believe that data is useless if it
-                    cannot be communicated effectively to stakeholders. Whether
-                    it's optimizing supply chains or predicting customer churn,
-                    my goal is always to provide actionable insights that drive
-                    growth.
-                  </p>
-                </div>
-              </div>
-            </div>
+        <!-- About section -->
+      <section id="about" class="relative w-full px-6 md:px-12 lg:px-40 py-32 flex justify-center bg-zinc-900 overflow-hidden">
+  
+          <div class="absolute inset-0 pointer-events-none select-none">
+            <div class="absolute inset-0 bg-noise opacity-[0.05]"></div>
+            <div class="absolute inset-0 bg-grid-slate-900/[0.04] bg-[bottom_1px_center]"></div>
+            <div class="absolute -top-24 -right-24 w-[500px] h-[500px] rounded-full blur-[120px]"></div>
           </div>
-        </section>
-        <section
-          class="w-full px-4 md:px-10 lg:px-40 py-20 flex justify-center relative bg-zinc-850"
-        >
-          <div class="w-full max-w-[1200px] flex flex-col gap-12 relative z-10">
-            <div class="flex flex-col gap-3 text-center md:text-left">
-              <h2 class="text-3xl font-bold text-white">Technical Skills</h2>
-              <p class="text-zinc-400 text-lg">
-                My toolbox for data extraction, processing, and visualization.
+
+          <div class="w-full max-w-6xl relative z-10">
+            <div class="text-center mb-20">
+              <h2 class="text-4xl md:text-5xl font-black tracking-tighter text-white mb-4">
+                About <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-cyan-400 drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]">Me </span>
+              </h2>
+              <p class="text-zinc-400 text-lg font-light max-w-3xl mx-auto italic">
+                "A dedicated Management Information System graduate with a passion for data analysis"
               </p>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-              <div
-                class="relative flex flex-col items-center justify-center gap-4 p-6 rounded-2xl bg-zinc-800 border border-zinc-700 shadow-sm hover:shadow-lg hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group cursor-default"
-              >
-                <div
-                  class="size-14 rounded-xl bg-emerald-900/20 flex items-center justify-center text-emerald-500 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300"
-                >
-                  <span class="material-symbols-outlined text-[28px]"
-                    >database</span
-                  >
-                </div>
-                <span
-                  class="font-bold text-zinc-300 group-hover:text-emerald-400 transition-colors"
-                  >SQL</span
-                >
+
+            <!-- <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start"> -->
+            <div class=""></div>
+          <div class="lg:col-span-7 flex flex-col gap-12 text-justify tracking-wide">
+
+            <div class="group">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="material-symbols-outlined text-emerald-400 bg-emerald-500/10 p-2 rounded-lg">person</span>
+                <h3 class="text-xl font-bold text-white tracking-tight">Who I Am</h3>
               </div>
-              <div
-                class="relative flex flex-col items-center justify-center gap-4 p-6 rounded-2xl bg-zinc-800 border border-zinc-700 shadow-sm hover:shadow-lg hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group cursor-default"
-              >
-                <div
-                  class="size-14 rounded-xl bg-emerald-900/20 flex items-center justify-center text-emerald-500 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300"
-                >
-                  <span class="material-symbols-outlined text-[28px]"
-                    >code</span
-                  >
-                </div>
-                <span
-                  class="font-bold text-zinc-300 group-hover:text-emerald-400 transition-colors"
-                  >Python</span
-                >
+              <p class="text-zinc-400 leading-relaxed font-light text-lg">
+                I'm <span class="text-emerald-400 font-medium">Hoang Phuc</span>, a dedicated Year 3 Management Information Systems student with a deep fascination for the power of data. I believe that behind every complex dataset lies a compelling story. My mission is to bridge the gap between technology and business by uncovering these narratives through precision analysis and cinematic visualization. <span class="italic"></span>
+              </p>
+            </div>
+
+            <div class="group">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="material-symbols-outlined text-cyan-400 bg-cyan-500/10 p-2 rounded-lg">track_changes</span>
+                <h3 class="text-xl font-bold text-white tracking-tight">My Mission</h3>
               </div>
-              <div
-                class="relative flex flex-col items-center justify-center gap-4 p-6 rounded-2xl bg-zinc-800 border border-zinc-700 shadow-sm hover:shadow-lg hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group cursor-default"
-              >
-                <div
-                  class="size-14 rounded-xl bg-emerald-900/20 flex items-center justify-center text-emerald-500 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300"
-                >
-                  <span class="material-symbols-outlined text-[28px]"
-                    >monitoring</span
-                  >
-                </div>
-                <span
-                  class="font-bold text-zinc-300 group-hover:text-emerald-400 transition-colors"
-                  >Tableau</span
-                >
+              <p class="text-zinc-400 leading-relaxed font-light text-lg"> To transform complex datasets into clear, actionable insights that drive business decisions. I combine technical skills with analytical thinking to solve real-world problems through data-driven approaches.
+              </p>
+            </div>
+
+            <div class="group">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="material-symbols-outlined text-emerald-400 bg-emerald-500/10 p-2 rounded-lg">school</span>
+                <h3 class="text-xl font-bold text-white tracking-tight">Educational Background</h3>
               </div>
-              <div
-                class="relative flex flex-col items-center justify-center gap-4 p-6 rounded-2xl bg-zinc-800 border border-zinc-700 shadow-sm hover:shadow-lg hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group cursor-default"
-              >
-                <div
-                  class="size-14 rounded-xl bg-emerald-900/20 flex items-center justify-center text-emerald-500 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300"
-                >
-                  <span class="material-symbols-outlined text-[28px]"
-                    >table_view</span
-                  >
-                </div>
-                <span
-                  class="font-bold text-zinc-300 group-hover:text-emerald-400 transition-colors"
-                  >Excel</span
-                >
-              </div>
-              <div
-                class="relative flex flex-col items-center justify-center gap-4 p-6 rounded-2xl bg-zinc-800 border border-zinc-700 shadow-sm hover:shadow-lg hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group cursor-default"
-              >
-                <div
-                  class="size-14 rounded-xl bg-emerald-900/20 flex items-center justify-center text-emerald-500 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300"
-                >
-                  <span class="material-symbols-outlined text-[28px]"
-                    >bar_chart</span
-                  >
-                </div>
-                <span
-                  class="font-bold text-zinc-300 group-hover:text-emerald-400 transition-colors"
-                  >Power BI</span
-                >
-              </div>
-              <div
-                class="relative flex flex-col items-center justify-center gap-4 p-6 rounded-2xl bg-zinc-800 border border-zinc-700 shadow-sm hover:shadow-lg hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group cursor-default"
-              >
-                <div
-                  class="size-14 rounded-xl bg-emerald-900/20 flex items-center justify-center text-emerald-500 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300"
-                >
-                  <span class="material-symbols-outlined text-[28px]"
-                    >functions</span
-                  >
-                </div>
-                <span
-                  class="font-bold text-zinc-300 group-hover:text-emerald-400 transition-colors"
-                  >R</span
-                >
+              <div class=" rounded-2xl backdrop-blur-sm">
+                <!-- <h4 class="text-white font-bold mb-1">Bachelor of Engineering in Electronics and Communication</h4> -->
+                <!-- <p class="text-emerald-400 text-sm mb-3">Adhiparasakthi Engineering College (2021-2025)</p> -->
+                <p class="text-zinc-400 text-base font-light text-lg">
+                  I am a third-year Management Information Systems student at the Banking Academy of Vietnam. My academic journey is defined by a rigorous focus on business intelligence and system analysis, maintaining a 3.81 GPA. <span class="text-white font-medium"></span>
+                </p>
               </div>
             </div>
           </div>
-        </section>
+
+          <!-- <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-6 lg:sticky lg:top-32">
+        
+            <div class="group relative p-8 rounded-[2rem] bg-zinc-800/30 border border-white/5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-emerald-500/30 flex flex-col items-center text-center">
+              <div class="size-14 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-4 group-hover:bg-emerald-500 group-hover:text-zinc-950 transition-all">
+                <span class="material-symbols-outlined text-3xl">school</span>
+              </div>
+              <h5 class="text-white font-bold text-lg">Fresh Graduate</h5>
+              <p class="text-zinc-500 text-sm mt-1">ECE Engineering</p>
+              <p class="text-emerald-400 font-black mt-2">7.8 CGPA</p>
+            </div>
+
+            <div class="group relative p-8 rounded-[2rem] bg-zinc-800/30 border border-white/5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-cyan-500/30 flex flex-col items-center text-center">
+              <div class="size-14 rounded-full bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-4 group-hover:bg-cyan-500 group-hover:text-zinc-950 transition-all">
+                <span class="material-symbols-outlined text-3xl">verified</span>
+              </div>
+              <h5 class="text-white font-bold text-lg">Data Analytics</h5>
+              <p class="text-zinc-500 text-sm mt-1">Certified Course</p>
+              <p class="text-cyan-400 font-black mt-2 uppercase tracking-tighter">SLA Institute</p>
+            </div>
+
+            <div class="group relative p-8 rounded-[2rem] bg-zinc-800/30 border border-white/5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-emerald-500/30 flex flex-col items-center text-center">
+              <div class="size-14 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-4 group-hover:bg-emerald-500 group-hover:text-zinc-950 transition-all">
+                <span class="material-symbols-outlined text-3xl">target</span>
+              </div>
+              <h5 class="text-white font-bold text-lg">Projects</h5>
+              <p class="text-zinc-500 text-sm mt-1">Completed</p>
+              <p class="text-emerald-400 font-black mt-2">Multiple Domains</p>
+            </div>
+
+            <div class="group relative p-8 rounded-[2rem] bg-zinc-800/30 border border-white/5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-cyan-500/30 flex flex-col items-center text-center">
+              <div class="size-14 rounded-full bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-4 group-hover:bg-cyan-500 group-hover:text-zinc-950 transition-all">
+                <span class="material-symbols-outlined text-3xl">psychology</span>
+              </div>
+              <h5 class="text-white font-bold text-lg">Passion</h5>
+              <p class="text-zinc-500 text-sm mt-1">Learning</p>
+              <p class="text-cyan-400 font-black mt-2">Continuous Growth</p>
+            </div>
+
+            </div> -->
+          </div>
+          </div>
+      </section>
+
+      <!-- Skills section -->
+       <section id="skills" class="relative w-full px-6 md:px-12 lg:px-40 py-32 flex justify-center bg-zinc-900 overflow-hidden">
+  
+  <div class="absolute inset-0 pointer-events-none select-none">
+    <div class="absolute inset-0 bg-noise opacity-[0.03]"></div>
+    <div class="absolute inset-0 bg-grid-slate-900/[0.04] bg-[bottom_1px_center]"></div>
+  </div>
+
+  <div class="w-full max-w-6xl relative z-10">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-black tracking-tighter text-white mb-4">
+        Technical <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Skills</span>
+      </h2>
+      <p class="text-zinc-400 text-lg font-light">Tools and technologies I use to transform data into insights</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Python -->
+      <div class="skill-card group relative p-8 rounded-[10px] bg-zinc-800/30 border border-white/10 backdrop-blur-sm transition-all duration-300 hover:border-emerald-500/50 shadow-sm" 
+           data-percent="85">
+        <div class="flex flex-col items-center text-center mb-6">
+            <div class="size-16 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 mb-4 transition-transform group-hover:scale-110">
+                <span class="material-symbols-outlined text-3xl">code</span>
+            </div>
+            <h4 class="text-xl font-bold text-white tracking-tight">Python</h4>
+            <p class="text-zinc-500 text-sm mt-1 italic">pandas, numpy, matplotlib</p>
+        </div>
+        <div class="space-y-2">
+            <div class="flex justify-between items-center text-[12px] font-medium text-zinc-400">
+                <span>Proficiency</span>
+                <span class="percent-label text-emerald-400 font-bold">0%</span>
+            </div>
+            <div class="h-2 w-full bg-zinc-700/50 rounded-[10px] overflow-hidden p-[1px]">
+                <div class="progress-fill h-full bg-emerald-500 rounded-[10px] shadow-[0_0_8px_#10b981] transition-all duration-500" style="width: 0%;"></div>
+            </div>
+        </div>
+      </div>
+      <!-- Power BI -->
+      <div class="skill-card group relative p-8 rounded-[10px] bg-zinc-800/30 border border-white/10 backdrop-blur-sm transition-all duration-300 hover:border-emerald-500/50 shadow-sm" 
+           data-percent="90">
+        <div class="flex flex-col items-center text-center mb-6">
+            <div class="size-16 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 mb-4">
+                <span class="material-symbols-outlined text-3xl">bar_chart</span>
+            </div>
+            <h4 class="text-xl font-bold text-white tracking-tight">Power BI</h4>
+            <p class="text-zinc-500 text-sm mt-1 italic">Dashboard, Data Viz</p>
+        </div>
+        <div class="space-y-2">
+            <div class="flex justify-between items-center text-[12px] font-medium text-zinc-400">
+                <span>Proficiency</span>
+                <span class="percent-label text-emerald-400 font-bold">0%</span>
+            </div>
+            <div class="h-2 w-full bg-zinc-700/50 rounded-[10px] overflow-hidden p-[1px]">
+                <div class="progress-fill h-full bg-emerald-500 rounded-[10px] shadow-[0_0_8px_#10b981] transition-all duration-500" style="width: 0%;"></div>
+            </div>
+        </div>
+      </div>
+      <!-- SQL -->
+      <div class="skill-card group relative p-8 rounded-[10px] bg-zinc-800/30 border border-white/10 backdrop-blur-sm transition-all duration-300 hover:border-emerald-500/50 shadow-sm" 
+           data-percent="80">
+        <div class="flex flex-col items-center text-center mb-6">
+            <div class="size-16 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 mb-4">
+                <span class="material-symbols-outlined text-3xl">database</span>
+            </div>
+            <h4 class="text-xl font-bold text-white tracking-tight">SQL</h4>
+            <p class="text-zinc-500 text-sm mt-1 italic">Queries, Data Manipulation</p>
+        </div>
+        <div class="space-y-2">
+            <div class="flex justify-between items-center text-[12px] font-medium text-zinc-400">
+                <span>Proficiency</span>
+                <span class="percent-label text-emerald-400 font-bold">0%</span>
+            </div>
+            <div class="h-2 w-full bg-zinc-700/50 rounded-[10px] overflow-hidden p-[1px]">
+                <div class="progress-fill h-full bg-emerald-500 rounded-[10px] shadow-[0_0_8px_#10b981] transition-all duration-500" style="width: 0%;"></div>
+            </div>
+        </div>
+      </div>
+      <!-- Excel -->
+      <div class="skill-card group relative p-8 rounded-[10px] bg-zinc-800/30 border border-white/10 backdrop-blur-sm transition-all duration-300 hover:border-emerald-500/50 shadow-sm" 
+           data-percent="90">
+        <div class="flex flex-col items-center text-center mb-6">
+            <div class="size-16 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 mb-4">
+                <span class="material-symbols-outlined text-3xl">database</span>
+            </div>
+            <h4 class="text-xl font-bold text-white tracking-tight">Excel</h4>
+            <p class="text-zinc-500 text-sm mt-1 italic">Data Analysis, Pivot Tables</p>
+        </div>
+        <div class="space-y-2">
+            <div class="flex justify-between items-center text-[12px] font-medium text-zinc-400">
+                <span>Proficiency</span>
+                <span class="percent-label text-emerald-400 font-bold">0%</span>
+            </div>
+            <div class="h-2 w-full bg-zinc-700/50 rounded-[10px] overflow-hidden p-[1px]">
+                <div class="progress-fill h-full bg-emerald-500 rounded-[10px] shadow-[0_0_8px_#10b981] transition-all duration-500" style="width: 0%;"></div>
+            </div>
+        </div>
+      </div>
+      <!-- Figma -->
+      <div class="skill-card group relative p-8 rounded-[10px] bg-zinc-800/30 border border-white/10 backdrop-blur-sm transition-all duration-300 hover:border-emerald-500/50 shadow-sm" 
+           data-percent="90">
+        <div class="flex flex-col items-center text-center mb-6">
+            <div class="size-16 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 mb-4">
+                <span class="material-symbols-outlined text-3xl">database</span>
+            </div>
+            <h4 class="text-xl font-bold text-white tracking-tight">Figma</h4>
+            <p class="text-zinc-500 text-sm mt-1 italic">UI/UX Design, Prototyping</p>
+        </div>
+        <div class="space-y-2">
+            <div class="flex justify-between items-center text-[12px] font-medium text-zinc-400">
+                <span>Proficiency</span>
+                <span class="percent-label text-emerald-400 font-bold">0%</span>
+            </div>
+            <div class="h-2 w-full bg-zinc-700/50 rounded-[10px] overflow-hidden p-[1px]">
+                <div class="progress-fill h-full bg-emerald-500 rounded-[10px] shadow-[0_0_8px_#10b981] transition-all duration-500" style="width: 0%;"></div>
+            </div>
+        </div>
+      </div>
+      <!-- Tableau -->
+      <div class="skill-card group relative p-8 rounded-[10px] bg-zinc-800/30 border border-white/10 backdrop-blur-sm transition-all duration-300 hover:border-emerald-500/50 shadow-sm" 
+           data-percent="90">
+        <div class="flex flex-col items-center text-center mb-6">
+            <div class="size-16 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 mb-4">
+                <span class="material-symbols-outlined text-3xl">database</span>
+            </div>
+            <h4 class="text-xl font-bold text-white tracking-tight">Tableau</h4>
+            <p class="text-zinc-500 text-sm mt-1 italic">Data Visualization, Dashboard Creation</p>
+        </div>
+        <div class="space-y-2">
+            <div class="flex justify-between items-center text-[12px] font-medium text-zinc-400">
+                <span>Proficiency</span>
+                <span class="percent-label text-emerald-400 font-bold">0%</span>
+            </div>
+            <div class="h-2 w-full bg-zinc-700/50 rounded-[10px] overflow-hidden p-[1px]">
+                <div class="progress-fill h-full bg-emerald-500 rounded-[10px] shadow-[0_0_8px_#10b981] transition-all duration-500" style="width: 0%;"></div>
+            </div>
+        </div>
+      </div>
+
+      
+
+    </div>
+  </div>
+</section>
         <section
           class="w-full px-4 md:px-10 lg:px-40 py-24 flex justify-center relative bg-zinc-900"
         >
@@ -834,6 +932,28 @@
 
   // Khởi chạy
   window.addEventListener('load', typeWriter);
+</script>
+<!-- Update Skills   -->
+<script>
+  function updateSkills() {
+    const skillCards = document.querySelectorAll('.skill-card');
+    
+    skillCards.forEach(card => {
+      // Lấy giá trị từ thuộc tính data-percent
+      const percent = card.getAttribute('data-percent');
+      
+      // Cập nhật nhãn chữ (ví dụ: 85%)
+      const label = card.querySelector('.percent-label');
+      if (label) label.textContent = percent + '%';
+      
+      // Cập nhật độ dài thanh tiến trình
+      const fill = card.querySelector('.progress-fill');
+      if (fill) fill.style.width = percent + '%';
+    });
+  }
+
+  // Chạy ngay khi trang web tải xong
+  window.addEventListener('DOMContentLoaded', updateSkills);
 </script>
   </body>
 </html>
